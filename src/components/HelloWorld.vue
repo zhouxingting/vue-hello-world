@@ -1,48 +1,114 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    <h1 :class="styles.test">
+      {{ msg }}
+      <span>我是测试</span>
+    </h1>
+    <p class="color">
+      For a guide and recipes on how to configure / customize this project,
+      <br />check out the
+      <a
+        href="https://cli.vuejs.org"
+        target="_blank"
+        rel="noopener"
+      >vue-cli documentation</a>.
     </p>
     <h3>Installed CLI Plugins</h3>
     <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+      <li>
+        <a
+          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
+          target="_blank"
+          rel="noopener"
+        >babel</a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
+          target="_blank"
+          rel="noopener"
+        >eslint</a>
+      </li>
     </ul>
     <h3>Essential Links</h3>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+      <li>
+        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
+      </li>
+      <li>
+        <a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a>
+      </li>
+      <li>
+        <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a>
+      </li>
+      <li>
+        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
+      </li>
     </ul>
     <h3>Ecosystem</h3>
     <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
+      <li>
+        <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>
+      </li>
+      <li>
+        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/vuejs/vue-devtools#vue-devtools"
+          target="_blank"
+          rel="noopener"
+        >vue-devtools</a>
+      </li>
+      <li>
+        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a>
+      </li>
+      <li>
+        <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <icon type="mini"></icon>
+        <icon type="add"></icon>
+        <icon type="close-1"></icon>
+        <icon type="cp-project"></icon>
+        <icon type="edit-project"></icon>
+        <icon type="eye"></icon>
+        <icon type="know"></icon>
+        <icon type="play-stop"></icon>
+        <icon type="umar-1"></icon>
+        <icon type="umar-2"></icon>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import styles from './hello.moudle.less?module';
+
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      styles,
+    };
+  },
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="less" scoped>
 h3 {
+  color: @color;
   margin: 40px 0 0;
+  padding: 10px 0;
 }
 ul {
   list-style-type: none;
