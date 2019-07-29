@@ -35,6 +35,11 @@ yarn run devinspect<br>
 yarn run proinspect<br>
 导出production配置文件
 ```
+##代码格式化
+```
+`git commit` 时会自动格式化，配置内容在根目录`package.json` 文件内.
+```
+
 yarn run lint
 
 ### Customize configuration
