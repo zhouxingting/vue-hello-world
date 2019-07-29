@@ -20,6 +20,6 @@ module.exports = {
   rules: {
     "import/extensions": [0],
     "import/no-unresolved": [0],
-    "linebreak-style": [0]
+    "linebreak-style": [0],
   }
 };

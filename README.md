@@ -24,6 +24,18 @@ yarn run test
 ```
 yarn run lint
 ```
+### Run your devinspect
+```
+yarn run devinspect<br>
+导出devlopment配置文件
+```
+
+### Run your proinspect
+```
+yarn run proinspect<br>
+导出production配置文件
+```
+yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
