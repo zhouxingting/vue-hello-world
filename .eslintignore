@@ -1,3 +1,5 @@
 vue.config.js
+postcss.config.js
 output.js
 proOutput.js
+dist
