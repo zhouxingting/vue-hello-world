@@ -6,9 +6,11 @@
   "scripts": {
     "serve": "vue-cli-service serve --port=9000",
     "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "devinspect": "vue-cli-service inspect > output.js",
     "proinspect": "vue-cli-service inspect > proOutput.js --mode=production",
-    "lint": "vue-cli-service lint"
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:unit": "vue-cli-service test:unit"
   },
   "main": "index.js",
   "dependencies": {
@@ -27,26 +29,20 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-e2e-cypress": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.2",
+    "@vue/cli-plugin-unit-jest": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.1",
     "vue-template-compiler": "^2.6.10"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",
@@ -54,5 +50,16 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "license": "MIT"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
 }
