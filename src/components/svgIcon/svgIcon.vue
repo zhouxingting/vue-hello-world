@@ -1,5 +1,5 @@
 <template>
-  <svg :width="width" :height="height">
+  <svg :width="width" :height="height" :class="svgClass">
     <use :xlink:href="iconName"/>
   </svg>
 </template>
@@ -11,6 +11,10 @@ export default {
     type: {
       default: 'sad',
     },
+    className: {
+      type: String,
+      default: '',
+    },
     width: {
       default: 50,
     },
@@ -21,6 +25,13 @@ export default {
   computed: {
     iconName() {
       return `#${this.$props.type}`;
+    },
+    svgClass() {
+      if (this.className) {
+        return 'svg-icon ' + this.className;
+      } else {
+        return 'svg-icon';
+      }
     },
   },
 };

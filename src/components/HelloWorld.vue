@@ -72,7 +72,7 @@
     </ul>
     <ul>
       <li>
-        <icon type="mini"></icon>
+        <!-- <icon type="mini"></icon>
         <icon type="add"></icon>
         <icon type="close-1"></icon>
         <icon type="cp-project"></icon>
@@ -81,20 +81,20 @@
         <icon type="know"></icon>
         <icon type="play-stop"></icon>
         <icon type="umar-1"></icon>
-        <icon type="umar-2"></icon>
+        <icon type="umar-2"></icon> -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import styles from './hello.moudle.less?module';
+// import styles from './hello.moudle.less?module';
 
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      styles,
+      styles: {},
     };
   },
   props: {
