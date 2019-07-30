@@ -21,5 +21,7 @@ module.exports = {
     "import/extensions": [0],
     "import/no-unresolved": [0],
     "linebreak-style": [0],
+    "prefer-template": [0],
+    "no-else-return": [0]
   }
 };
