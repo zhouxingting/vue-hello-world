@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1 :class="styles.test">
+    <h1 :class="$style.test">
       {{ msg }}
       <span>我是测试</span>
     </h1>
@@ -72,7 +72,7 @@
     </ul>
     <ul>
       <li>
-        <!-- <icon type="mini"></icon>
+        <icon type="mini"></icon>
         <icon type="add"></icon>
         <icon type="close-1"></icon>
         <icon type="cp-project"></icon>
@@ -81,21 +81,17 @@
         <icon type="know"></icon>
         <icon type="play-stop"></icon>
         <icon type="umar-1"></icon>
-        <icon type="umar-2"></icon> -->
+        <icon type="umar-2"></icon>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-// import styles from './hello.moudle.less?module';
-
 export default {
   name: 'HelloWorld',
   data() {
-    return {
-      styles: {},
-    };
+    return {};
   },
   props: {
     msg: String,
@@ -105,21 +101,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- <style lang="less" scoped> -->
-<style lang="less" scoped>
-h3 {
-  color: @color;
-  margin: 40px 0 0;
-  padding: 10px 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="less" module scoped>
+  @import './hello.moudle.less';
+  h3 {
+    color: @color;
+    margin: 40px 0 0;
+    padding: 10px 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 </style>
