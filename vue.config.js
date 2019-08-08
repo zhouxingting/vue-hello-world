@@ -120,12 +120,6 @@ module.exports = {
             .optimization.splitChunks({
               chunks: 'all',
               cacheGroups: {
-                libs: {
-                  name: 'chunk-libs',
-                  test: /[\\/]node_modules[\\/]/,
-                  priority: 10,
-                  chunks: 'initial' // only package third parties that are initially dependent
-                },
                 elementUI: {
                   name: 'chunk-elementUI', // split elementUI into a single package
                   priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
