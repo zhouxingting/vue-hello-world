@@ -12,6 +12,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
   },
+  "homepage": "https://zhouxingting.github.io/vue-hello-world/",
   "main": "index.js",
   "dependencies": {
     "autodll-webpack-plugin-4x": "^0.4.3",

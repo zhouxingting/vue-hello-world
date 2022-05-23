@@ -1,0 +1,55 @@
+# 一个GitHub Actions脚本, 可部署至GitHub Pages和自己服务器
+# ${{secrets.}} 等变量需要在setting>secrets>actions中配置
+# 官网配置文档 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+name: GitHub Actions Build and Deploy Demo
+
+# 字段指定触发 workflow 的条件
+on:
+  # 触发的分支
+  push:
+    branches:
+      - master
+
+# # 手动触发
+# on: workflow_dispatch
+
+jobs:
+  # 一个job任务，任务名为build-and-deploy
+  build-and-deploy:
+    # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
+    runs-on: ubuntu-latest
+    # steps是每个Job的运行步骤，可以包含一个或多个步骤
+    steps:
+      - name: 获取源码
+        # 使用action库
+        uses: actions/checkout@master
+
+      - name: 安装依赖 打包
+        run: |
+          npm i
+          npm run build
+
+      - name: 拷贝文件至服务器(使用密码连接)
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          # host:
+          # password:
+          branch: master
+          folder: dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: AutumnWhj/AutumnWhj.github.io # github page 仓库
+          target-folder: github-actions-docs
+      # 部署至GitHub Pages
+      # - name: deploy file to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4.2.2
+      #   with:
+      #     token: ${{ secrets.ACCESS_TOKEN }}
+      #     branch: gh-pages
+      #     folder: build
+      # - name: ssh-action使用密码
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host:
+      #     username: root
+      #     password:
+      #     script: whoami
