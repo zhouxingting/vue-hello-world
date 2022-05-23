@@ -34,10 +34,10 @@ jobs:
         with:
           # host:
           # password:
-          branch: master
+          branch: git-action
           folder: dist
           token: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: AutumnWhj/AutumnWhj.github.io # github page 仓库
+          repository-name: zhouxingting/zhouxingting.github.io # github page 仓库
           target-folder: github-actions-docs
       # 部署至GitHub Pages
       # - name: deploy file to GitHub Pages
