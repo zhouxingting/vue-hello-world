@@ -16,6 +16,7 @@ function addStyleResource(rule) {
       patterns: [path.resolve(__dirname, "src/assets/common/variable.less")]
     });
 }
+
 module.exports = {
   lintOnSave: process.env.NODE_ENV !== "production",
   baseUrl: "/vue-hello-world",
