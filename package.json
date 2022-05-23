@@ -2,7 +2,7 @@
   "name": "hello-world",
   "version": "0.1.0",
   "private": true,
-  "author": "周兴婷 <1404203081@qq.com>",
+  "author": "zhouxingting",
   "scripts": {
     "serve": "vue-cli-service serve --port=9000",
     "build": "vue-cli-service build",
