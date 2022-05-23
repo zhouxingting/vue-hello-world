@@ -29,25 +29,20 @@ jobs:
           npm i
           npm run build
       # 部署至GitHub Pages
-      - name: deploy file to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
-        with:
-          # host:
-          # password:
-          branch: git-action
-          folder: dist
-          token: ${{ secrets.ACCESS_TOKEN }}
-      # 部署至GitHub Pages
       # - name: deploy file to GitHub Pages
       #   uses: JamesIves/github-pages-deploy-action@v4.2.2
       #   with:
+      #     # host:
+      #     # password:
+      #     branch: git-action
+      #     folder: dist
       #     token: ${{ secrets.ACCESS_TOKEN }}
-      #     branch: gh-pages
-      #     folder: build
-      # - name: ssh-action使用密码
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host:
-      #     username: root
-      #     password:
-      #     script: whoami
+      # 部署至服务器
+      - name: deploy file to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        username: 'root'
+          server: ${{ secrets.SERVER_IP }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          local_path: './dist/*'
+          remote_path: '/zxt/vue-hello-world'
+          args: '-o ConnectTimeout=5'
