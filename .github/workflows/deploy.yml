@@ -28,17 +28,15 @@ jobs:
         run: |
           npm i
           npm run build
-
-      - name: 拷贝文件至服务器(使用密码连接)
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      # 部署至GitHub Pages
+      - name: deploy file to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           # host:
           # password:
           branch: git-action
           folder: dist
           token: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: zhouxingting/zhouxingting.github.io # github page 仓库
-          target-folder: github-actions-docs
       # 部署至GitHub Pages
       # - name: deploy file to GitHub Pages
       #   uses: JamesIves/github-pages-deploy-action@v4.2.2
