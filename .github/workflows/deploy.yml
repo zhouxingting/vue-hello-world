@@ -40,9 +40,10 @@ jobs:
       # 部署至服务器
       - name: deploy file to server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
-        username: 'root'
+        with:
+          username: "root"
           server: ${{ secrets.SERVER_IP }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
-          local_path: './dist/*'
-          remote_path: '/zxt/vue-hello-world'
-          args: '-o ConnectTimeout=5'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          local_path: "./dist/*"
+          remote_path: "/zxt/vue-hello-world"
+          args: "-o ConnectTimeout=5"
