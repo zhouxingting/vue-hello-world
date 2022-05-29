@@ -20,14 +20,13 @@ jobs:
     runs-on: ubuntu-latest
     # steps是每个Job的运行步骤，可以包含一个或多个步骤
     steps:
-      - name: 获取源码
-        # 使用action库
-        uses: actions/checkout@master
-
-      - name: 安装依赖 打包
-        run: |
-          npm i
-          npm run build
+      # - name: 获取源码
+      #   # 使用action库
+      #   uses: actions/checkout@master
+      # - name: 安装依赖 打包
+      #   run: |
+      #     npm i
+      #     npm run build
       # 部署至GitHub Pages
       # - name: deploy file to GitHub Pages
       #   uses: JamesIves/github-pages-deploy-action@v4.2.2
@@ -38,15 +37,15 @@ jobs:
       #     folder: dist
       #     token: ${{ secrets.ACCESS_TOKEN }}
       # 部署至服务器
-      - name: deploy file to server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
-        with:
-          username: "lighthouse"
-          server: ${{ secrets.SERVER_IP }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          local_path: "./dist/*"
-          remote_path: "/home/lighthouse/zxt/vue-hello-world"
-          args: "-o ConnectTimeout=5"
+      # - name: deploy file to server
+      #   uses: wlixcc/SFTP-Deploy-Action@v1.0
+      #   with:
+      #     username: "lighthouse"
+      #     server: ${{ secrets.SERVER_IP }}
+      #     ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     local_path: "./dist/*"
+      #     remote_path: "  "
+      #     args: "-o ConnectTimeout=5"
       # - name: deploy file to server
       #   uses: appleboy/scp-action@master
       #   with:
@@ -55,6 +54,32 @@ jobs:
       #     password: ${{ secrets.PASSWORD }}
       #     port: ${{ secrets.PORT }}
       #     source: "./dist/*"
-      #     target: "/zxt/vue-hello-world"
+      #     target: " "
       #     rm: true
       #     strip_components: 1
+      - name: 获取源码
+        # 使用action库
+        uses: actions/checkout@master
+        run: |
+          git checkout git-action
+      - name: 拷贝项目至服务器(这里用的密码也可使用ssh连接)
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          username: root
+          source: "./*"
+          target: /dockerDir
+          rm: true
+
+      - name: 对服务器执行命令运行next-docker(这里用的密码也可使用ssh连接)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          username: root
+          script: |
+            cd /dockerDir/dist
+            docker build -t vue-docker .
+            docker rm vue-container -f
+            docker run -p 3002:3000 -d --name vue-container vue-docker
