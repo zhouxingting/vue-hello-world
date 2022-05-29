@@ -69,7 +69,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           username: root
           source: "./*"
-          target: /dockerDir
+          target: /dockerDir/
           rm: true
 
       - name: 对服务器执行命令运行next-docker(这里用的密码也可使用ssh连接)
@@ -79,7 +79,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           username: root
           script: |
-            cd /dockerDir/dist
+            cd /dockerDir
             docker build -t vue-docker .
             docker rm vue-container -f
             docker run -p 3002:3000 -d --name vue-container vue-docker
