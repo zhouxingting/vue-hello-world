@@ -75,8 +75,8 @@ jobs:
       - name: 对服务器执行命令运行next-docker(这里用的密码也可使用ssh连接)
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          password: ${{ secrets.SERVER_PASSWORD }}
+          host: ${{ secrets.SERVER_IP }}
+          password: ${{ secrets.PASSWORD }}
           username: root
           script: |
             cd /dockerDir/dist
