@@ -65,8 +65,8 @@ jobs:
       - name: 拷贝项目至服务器(这里用的密码也可使用ssh连接)
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          password: ${{ secrets.SERVER_PASSWORD }}
+          host: ${{ secrets.SERVER_IP }}
+          password: ${{ secrets.PASSWORD }}
           username: root
           source: "./*"
           target: /dockerDir
